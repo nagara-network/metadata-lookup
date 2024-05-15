@@ -1,0 +1,28 @@
+[package]
+authors = [
+    "nagara Contributors <https://github.com/nagara-network>",
+    "nagara Core Developers <dev@nagara.network>",
+]
+edition = "2021"
+license = "MIT"
+name = "nagara-metadata-lookup"
+publish = false
+repository = "https://github.com/nagara-network/metadata-lookup"
+version = "1.0.24-alpha.6"
+
+[dependencies]
+actix-cors = "0.7.0"
+actix-web = { version = "4.5.1", default-features = false, features = ["macros"] }
+chrono = { version = "0.4.38", features = ["serde"] }
+hex = { version = "0.4.3", features = ["serde"] }
+meilisearch-sdk = "0.26.1"
+mimalloc = { version = "0.1.41", features = ["local_dynamic_tls", "override"] }
+nagara-identities = { git = "https://github.com/nagara-network/ecosystem-libraries.git", rev = "c3394eb", version = "1.0.24-alpha.5", features = [
+    "std",
+] }
+nagara-logging = { git = "https://github.com/nagara-network/ecosystem-libraries.git", rev = "c3394eb", version = "1.0.24-alpha.5", features = [
+    "app",
+] }
+serde = { version = "1.0.201", features = ["derive"] }
+thiserror = "1.0.60"
+tokio = { version = "1.37.0", features = ["full"] }
