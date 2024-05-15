@@ -24,5 +24,6 @@ nagara-logging = { git = "https://github.com/nagara-network/ecosystem-libraries.
     "app",
 ] }
 serde = { version = "1.0.201", features = ["derive"] }
+subxt = { version = "0.35.3", features = ["getrandom", "sp-core", "sp-runtime", "substrate-compat"] }
 thiserror = "1.0.60"
 tokio = { version = "1.37.0", features = ["full"] }
