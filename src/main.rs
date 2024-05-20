@@ -76,6 +76,7 @@ struct FileMetadata {
     big_brother: nagara_identities::public::PublicKey,
     servicer: nagara_identities::public::PublicKey,
     owner: nagara_identities::public::PublicKey,
+    attester: nagara_identities::public::PublicKey,
     #[serde(with = "hex::serde")]
     transfer_fee: [u8; 16],
     #[serde(with = "hex::serde")]
@@ -101,6 +102,8 @@ impl From<(FileOffchainMetadata, FileOnchainMetadata)> for FileMetadata {
             nagara_identities::public::PublicKey::try_from(value.1.servicer.0.as_ref()).unwrap();
         let owner =
             nagara_identities::public::PublicKey::try_from(value.1.owner.0.as_ref()).unwrap();
+        let attester =
+            nagara_identities::public::PublicKey::try_from(value.1.attester.0.as_slice()).unwrap();
         let size = value.1.size;
         let hash = value.1.hash;
         let filename = value.0.filename;
@@ -121,6 +124,7 @@ impl From<(FileOffchainMetadata, FileOnchainMetadata)> for FileMetadata {
             big_brother,
             servicer,
             owner,
+            attester,
             transfer_fee,
             download_fee,
             size,
