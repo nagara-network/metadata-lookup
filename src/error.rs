@@ -2,10 +2,8 @@ pub type Result<T> = core::result::Result<T, self::Error>;
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
-    #[error("IO error")]
+    #[error("IO error:\n{0}")]
     IOError(#[from] std::io::Error),
-    #[error("Subxt error")]
-    SubxtError(#[from] subxt::Error),
     #[error("Connection to internal database is broken")]
     StoreConnectionBroken,
     #[error("Bad metadata processing")]
